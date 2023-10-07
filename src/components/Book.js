@@ -1,33 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { bookRemoved } from '../redux/books/booksSlice';
 
-const Book = (props) => {
-  const { book } = props;
+const Book = () => {
+  const bookList = useSelector((state) => state.books.books);
+  const reduxDispatch = useDispatch();
+
+  const removeBooks = (bookId) => {
+    reduxDispatch(bookRemoved(bookId));
+  };
+
   return (
-    <div className="book-div">
-      {book.map((book) => (
-        <div key={book.id}>
+    <div className="book-section">
+      {bookList.map((book) => (
+        <div key={book.item_id}>
           <h3>{book.title}</h3>
           <p>{book.author}</p>
           <span>
-            <button type="button">Comments</button>
-            <button type="button">Remove</button>
+            <button type="button">Comment</button>
+            <button type="button" onClick={() => removeBooks(book.item_id)}>Remove</button>
             <button type="button">Edit</button>
           </span>
         </div>
       ))}
     </div>
   );
-};
-
-Book.propTypes = {
-  book: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default Book;
