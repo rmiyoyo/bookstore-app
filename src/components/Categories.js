@@ -1,18 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { setStatus } from '../redux/categories/categoriesSlice';
+import Show from './Show';
 
-function Categories() {
-  const report = useSelector(setStatus);
-  const handleClick = () => `Status: ${report}`;
-
-  return (
+const Categories = () => (
+  <div id="categories">
     <div>
-      <button type="button" onClick={handleClick}>
-        Whats the Status
-      </button>
+      <Show />
+      <h2>Under Construction</h2>
     </div>
-  );
-}
+  </div>
+);
 
 export default Categories;
