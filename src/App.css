@@ -1,4 +1,9 @@
-.App {
-  text-align: center;
-  color: rgb(173, 216, 230);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(163, 166, 169, 0.2);
 }

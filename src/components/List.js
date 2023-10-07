@@ -5,6 +5,8 @@ import Form from './Form';
 import { getData } from '../redux/books/booksSlice';
 import Show from './Show';
 import Book from './Book';
+import Menu from './Menu';
+import './List.css';
 
 const List = () => {
   const books = useSelector((store) => store.book.books);
@@ -19,8 +21,9 @@ const List = () => {
     return <div className="loading"><Show /></div>;
   } if (statusFetch === 'succeeded') {
     return (
-      <div>
+      <div className="item-list-container">
         <div className="item-list">
+          <Menu />
           {books.map((book) => (
             <Book key={books.itemId || books.item_id || uuidv4()} book={book} />
           ))}
