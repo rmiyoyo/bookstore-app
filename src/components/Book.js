@@ -56,7 +56,7 @@ const Book = ({ book }) => {
             Page:
             {currentPage}
           </p>
-          <button className="blue_button" type="button" onClick={handleUpdateProgress}>Update Progress</button>
+          <button className="progress-button" type="button" onClick={handleUpdateProgress}>Update Progress</button>
         </div>
       </section>
     </div>
